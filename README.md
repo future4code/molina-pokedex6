@@ -1,9 +1,9 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Pessoa 1 Jaqueline Lourenço
+- Pessoa 2 Pablo Loredo 
+- Pessoa 3 Roberth Willames Moura Felicissimo
 
 Link do Surge: www.link.com.br
 
