@@ -1,9 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { goToDetailsPage } from "../../router/Coordinator";
 
 import { DetailsBtnContainer, PokeCardContainer } from "../Styled/styled"
 
 export default function PokeCard(props) {
+  const history = useHistory();
 
     return (
         <PokeCardContainer>
@@ -17,7 +19,7 @@ export default function PokeCard(props) {
           </button>
 
           <button
-            onClick={() => goToDetailsPage()}
+            onClick={() => goToDetailsPage(history)}
           >
             Ver detalhes
           </button>
