@@ -3,8 +3,8 @@ import styled from "styled-components";
 //card home e pokedex
 
 export const Header = styled.div`
-  color: #ffff33;
-  background-color: #ff6666;
+  color: #D10408;
+  background-color: #615E5E;
   height: 80px;
   width: 95vw;
   position: fixed;
@@ -13,18 +13,23 @@ export const Header = styled.div`
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  box-shadow: 3px 3px 3px 3px #d9d9d9;
+  box-shadow: 3px 3px 3px 3px #D10408;
+
+  img {
+    width: 100px;
+    border-radius: 20px;
+    
+  }
 
   button {
-      color: #ffff33;
-      background-color: blue;
+      color: black;
+      background-color: #D10408;
       padding: 10px;
       border-radius: 16px;
 
       :hover {
           cursor: pointer;
-          background-color: white;
-          color: black;
+          background-color: #2EA4E8;
         }
     }
 `
@@ -120,3 +125,14 @@ export const PokeStatsContainer = styled.div`
   text-align: center;
   align-items: center;
 `;
+
+export const ButtonContainer = styled.div`
+  margin: 10px;
+
+  button {
+    color: #ffff33;
+    text-decoration: none;
+    list-style: none;
+    margin: 5px;
+  }
+`

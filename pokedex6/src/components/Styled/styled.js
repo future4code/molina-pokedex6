@@ -19,14 +19,14 @@ export const PokeCardContainer = styled.div`
     border-radius: 5px;
     margin-left: 25px;
     height: 150px;
-    box-shadow: 3px 3px 3px 3px #d9d9d9;
+    box-shadow: 3px 3px 3px 3px #D10408;
     width: 200px;
     background-color: #f2f3f5;
     
   }
 
   img {
-    background-color: #d9d9d9;
+    background-color: #D10408;
     border-radius: 100%;
     height: 150px;
     width: 150px;
@@ -36,9 +36,9 @@ export const PokeCardContainer = styled.div`
     margin-top: 25px;
     padding: 2px;
     background-color: #f2f3f5;
-    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px,
-      rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px,
-      rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+    box-shadow: rgb(209, 4, 8, 0.4) 0px 5px,
+    rgb(209, 4, 8, 0.3) 0px 10px, rgb(209, 4, 8, 0.2) 0px 15px,
+    rgb(209, 4, 8, 0.1) 0px 20px, rgb(209, 4, 8, 0.05) 0px 25px;
   }
 `
 
