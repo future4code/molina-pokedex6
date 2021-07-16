@@ -1,0 +1,21 @@
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+
+export default GetHooks = () => {
+    const [dados,setDados] = useState([])
+
+    const getDados = () =>{
+        //Pega os dados dos pokemons na poke API 
+        axios.get('https://pokeapi.co/api/v2/pokemon').then(resposta => {
+            setDados(resposta.data.results)
+            console.log(resposta.data.results)
+        })
+        .catch(error =>
+            {console.log(error)})
+        }
+        useEffect(() => {
+            getDados()
+    }, [])
+
+    return(dados.map) 
+}

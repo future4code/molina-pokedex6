@@ -1,30 +1,89 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { goToDetailsPage } from "../../router/Coordinator";
+import axios from "axios";
+import GlobalStateContext from "../../global/GlobalStateContext";
 
 import { DetailsBtnContainer, PokeCardContainer } from "../Styled/styled"
 
-export default function PokeCard(props) {
+export default function PokeCard (props) {
+
   const history = useHistory();
 
-    return (
-        <PokeCardContainer>
-        <img src={"https://www.amscan-europe.com/graphics_cache/2/e/20562-9904820-1-3-1500+.jpg"} 
-            alt={""} 
-        />
-        <p>{"Pokemon"}</p>
-        <DetailsBtnContainer>
-          <button>
-            {"Remover"} {"Adicionar"}
-          </button>
+  const [photo, setPhoto] = useState([]);
+  const { states, setters } = useContext(GlobalStateContext);
 
-          <button
-            onClick={() => goToDetailsPage(history)}
-          >
-            Ver detalhes
-          </button>
-        </DetailsBtnContainer>
-      </PokeCardContainer>
-    )
+  const pokemonPhoto = () => {
+    axios
+      .get(props.pokemon.url)
+      .then((response) => {
+        setPhoto(response.data.sprites.front_default);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  useEffect(() => {
+    pokemonPhoto();
+  }, []);
+
+  const addToPokedex = () => {
+    const pokeIndex = states.pokemonList.findIndex(
+      (item) => item.name === props.pokemon.name
+    );
+    const newPokemonList = [...states.pokemonList];
+    newPokemonList.splice(pokeIndex, 1);
+
+    const newPokedexList = [...states.pokedex, props.pokemon];
+    const orderedList = newPokedexList.sort((a, b) => {
+      return (
+        Number(a.url.slice(20, a.url.length - 1)) -
+        Number(b.url.slice(20, b.url.length - 1))
+      );
+    });
+
+    setters.setPokedex(orderedList);
+    setters.setPokemonList(newPokemonList);
+  };
+
+  const removeFromPokedex = () => {
+    const pokeIndex = states.pokedex.findIndex(
+      (item) => item.name === props.pokemon.name
+    );
+    const newPokedexList = [...states.pokedex];
+    newPokedexList.splice(pokeIndex, 1);
+
+    const newPokemonList = [...states.pokemonList, props.pokemon];
+    const orderedList = newPokemonList.sort((a, b) => {
+      return (
+        Number(a.url.slice(20, a.url.length - 1)) -
+        Number(b.url.slice(20, b.url.length - 1))
+      );
+    });
+
+    setters.setPokedex(newPokedexList);
+    setters.setPokemonList(orderedList);
+  };
+
+  return (
+    <PokeCardContainer>
+      <img src={photo} alt={props.pokemon.name} />
+      <p>{props.pokemon.name}</p>
+      <DetailsBtnContainer>
+        <button 
+          onClick={props.isPokedex ? removeFromPokedex : addToPokedex}
+        >
+          {props.isPokedex ? "Remover" : "Adicionar"}
+        </button>
+
+        <button
+          onClick={() => goToDetailsPage(history,  props.pokemon.name)}
+        >
+          Ver detalhes
+        </button>
+      </DetailsBtnContainer>
+    </PokeCardContainer>
+  )
 
 }
