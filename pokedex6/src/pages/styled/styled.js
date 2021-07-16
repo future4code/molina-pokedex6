@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-//card home e pokedex
+//Home e Pokedex Pages
 
 export const Header = styled.div`
   color: #D10408;
@@ -28,9 +28,10 @@ export const Header = styled.div`
       border-radius: 16px;
 
       :hover {
-          cursor: pointer;
-          background-color: #2EA4E8;
-        }
+        color: red;
+        cursor: pointer;
+        background-color: #8A5428;
+      }
     }
 `
 
@@ -44,95 +45,17 @@ export const HomeFlexBox = styled.main`
   flex-wrap: wrap;
   padding-top: 100px;
 `;
-//page details
 
-export const DetailsFlexBox = styled.main`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding-top: 8%;
-`;
-
-export const ImgFlexBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  align-content: center;
-`;
-
-export const PokeImgContainer = styled.div`
-  background-color: #f2f2f2f2;
-  border-radius: 20px;
-  height: 250px;
-  width: 250px;
-  margin: 20px;
-  box-shadow: 3px 3px 3px 3px #d9d9d9;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-`;
-
-export const TypeMovesFlexBox = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const PokeTypeContainer = styled.div`
-  background-color: #f2f2f2f2;
-  border-radius: 20px;
-  height: 60px;
-  width: 350px;
-  margin: 20px;
-  box-shadow: 3px 3px 3px 3px #d9d9d9;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-`;
-
-export const PokeMovesContainer = styled.div`
-  background-color: #f2f2f2f2;
-  border-radius: 20px;
-  height: 439px;
-  width: 350px;
-  margin: 20px;
-  box-shadow: 3px 3px 3px 3px #d9d9d9;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-`;
-
-export const StatsFlexBox = styled.div`
-  display: flex;
-  justify-content: column;
-  text-align: Center;
-`;
-
-export const PokeStatsContainer = styled.div`
-  background-color: #f2f2f2f2;
-  border-radius: 20px;
-  height: 543px;
-  width: 350px;
-  margin: 20px;
-  box-shadow: 3px 3px 3px 3px #d9d9d9;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-`;
+//page Details Page
 
 export const ButtonContainer = styled.div`
   margin: 10px;
 
   button {
-    color: #ffff33;
+    color: black;
     text-decoration: none;
     list-style: none;
     margin: 5px;
+    padding: 12px;
   }
 `

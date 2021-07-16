@@ -38,8 +38,8 @@ export default function PokeCard (props) {
     const newPokedexList = [...states.pokedex, props.pokemon];
     const orderedList = newPokedexList.sort((a, b) => {
       return (
-        Number(a.url.slice(34, a.url.length - 1)) -
-        Number(b.url.slice(34, b.url.length - 1))
+        Number(a.url.slice(20, a.url.length - 1)) -
+        Number(b.url.slice(20, b.url.length - 1))
       );
     });
 
@@ -57,8 +57,8 @@ export default function PokeCard (props) {
     const newPokemonList = [...states.pokemonList, props.pokemon];
     const orderedList = newPokemonList.sort((a, b) => {
       return (
-        Number(a.url.slice(30, a.url.length - 1)) -
-        Number(b.url.slice(30, b.url.length - 1))
+        Number(a.url.slice(20, a.url.length - 1)) -
+        Number(b.url.slice(20, b.url.length - 1))
       );
     });
 
@@ -67,23 +67,23 @@ export default function PokeCard (props) {
   };
 
   return (
-        <PokeCardContainer>
-        <img src={photo} alt={props.pokemon.name} />
-        <p>{props.pokemon.name}</p>
-        <DetailsBtnContainer>
-          <button 
-            onClick={props.isPokedex ? removeFromPokedex : addToPokedex}
-          >
-            {props.isPokedex ? "Remover" : "Adicionar"}
-          </button>
+    <PokeCardContainer>
+      <img src={photo} alt={props.pokemon.name} />
+      <p>{props.pokemon.name}</p>
+      <DetailsBtnContainer>
+        <button 
+          onClick={props.isPokedex ? removeFromPokedex : addToPokedex}
+        >
+          {props.isPokedex ? "Remover" : "Adicionar"}
+        </button>
 
-          <button
-            onClick={() => goToDetailsPage(history,  props.pokemon.name)}
-          >
-            Ver detalhes
-          </button>
-        </DetailsBtnContainer>
-      </PokeCardContainer>
-    )
+        <button
+          onClick={() => goToDetailsPage(history,  props.pokemon.name)}
+        >
+          Ver detalhes
+        </button>
+      </DetailsBtnContainer>
+    </PokeCardContainer>
+  )
 
 }

@@ -8,30 +8,31 @@ import {Header , HomeFlexBox} from '../styled/styled'
 import PokeLogo from '../../assets/pokeball-logo.png'
 
 export default function PokeDexPage() {
-    const history = useHistory();
 
+    const history = useHistory();
     const {states} = useContext(GlobalStateContext)
 
     return(
         <div>
             <Header>
-            <button onClick={()=>goToHomePage(history)} >
-                Lista de Pokemons
-            </button>
-            <h2>PokeDex</h2>
-            <img src={PokeLogo} />
+                <button onClick={()=>goToHomePage(history)} >
+                    Lista de Pokemons
+                </button>
+                <h1>PokeDex</h1>
+                <img src={PokeLogo} />
             </Header>
             <HomeFlexBox>
-            {states.pokedex && 
-                states.pokedex.map((pokemon) => {
-                    return (
-                    <PokeCard
-                        key={pokemon.name}
-                        pokemon={pokemon}
-                        isPokedex={true}
-                    />)
-                })
-            }
+                {states.pokedex && 
+                    states.pokedex.map((pokemon) => {
+                        return (
+                            <PokeCard
+                                key={pokemon.name}
+                                pokemon={pokemon}
+                                isPokedex={true}
+                            />
+                        )
+                    })
+                }
             </HomeFlexBox>
         </div>
     )

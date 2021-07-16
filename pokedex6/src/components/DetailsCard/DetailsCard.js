@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { baseURL } from "../../constants/urls";
 
@@ -12,50 +11,48 @@ import {
     ImgFlexBox,
     StatsFlexBox,
     TypeMovesFlexBox
-  } from "../../pages/styled/styled";
+} from "../Styled/styled";
 
-export default function DetailsPage(props) {
-    const history = useHistory();
+export default function DetailsCard(props)  {
 
     const [data, setData] = useState({});
     const [moves, setMoves] = useState([]);
 
     const getPokeDetails = () => {
-        axios
+      axios
         .get(`${baseURL}/${props.pokemon.pokemon}`)
         .then((response) => {
-            setData(response.data);
+          setData(response.data);
         })
-        .catch((err) => {
-            console.log(err);
+        .catch((error) => {
+          alert("", error.data);
         });
     };
-
+  
     useEffect(() => {
-        getPokeDetails();
+      getPokeDetails();
     }, []);
-    
-      const renderMoves = () => {
-        const newMoves = [];
-        if (data.moves) {
-          for (let i = 0; i < 7 && i < data.moves.length; i++) {
-            newMoves.push(data.moves[i].move.name);
-          }
-          setMoves(newMoves);
+  
+    const renderMoves = () => {
+      const newMoves = [];
+      if (data.moves) {
+        for (let i = 0; i < 7 && i < data.moves.length; i++) {
+          newMoves.push(data.moves[i].move.name);
         }
-      };
-    
-      useEffect(() => {
-        renderMoves();
-      }, [data]);
-    
-
-    return(
+        setMoves(newMoves);
+      }
+    };
+  
+    useEffect(() => {
+      renderMoves();
+    }, [data]);
+  
+    return (
         <div>
             <DetailsFlexBox>
                 <ImgFlexBox>
                     <PokeImgContainer>
-                        {/*Frontal img pokemon */}
+                        {/*Img pokemon Frontal*/}
                         {data.sprites && (
                             <img
                                 src={data.sprites.front_default}
@@ -65,7 +62,7 @@ export default function DetailsPage(props) {
                         )}
                     </PokeImgContainer>
                     <PokeImgContainer>
-                        {/*Costas img pokemon */}
+                        {/*Img pokemon de Costas */}
                         {data.sprites && (
                             <img
                                 src={data.sprites.back_default}
@@ -79,33 +76,39 @@ export default function DetailsPage(props) {
                     <PokeTypeContainer>
                         <h3>Tipo: </h3>
                         {data.types &&
-                        data.types.map((type) => {
-                            return <p>{type.type.name}</p>;
-                        })}
+                            data.types.map((type) => {
+                                return <p>{type.type.name}</p>;
+                            })
+                        }
                     </PokeTypeContainer>
                     <PokeMovesContainer>
-                        <h3>Movimentos</h3>
+                        <h3>Movimentos:</h3>
                         {moves &&
-                        moves.map((moves) => {
-                            return <p>{moves}</p>;
-                        })}
+                            moves.map((moves) => {
+                                return <p>{moves}</p>;
+                            })
+                        }
                     </PokeMovesContainer>
                 </TypeMovesFlexBox>
                 <StatsFlexBox>
                     <PokeStatsContainer>
-                        <h3>Estatísticas</h3>
-                        {data.stats &&
-                        data.stats.map((stat) => {
-                            return (
-                                <p key={stat.stat.name}>
-                                    <strong>{stat.stat.name}:</strong>
-                                    {stat.base_stat}
-                                </p>
-                            );
-                        })}
+                        <h3 >Estatísticas</h3>
+                        <div>
+                            {data.stats &&
+                                data.stats.map((stat) => {
+                                    return(
+                                        <p key={stat.stat.name}>
+                                            <strong>{stat.stat.name}:</strong>
+                                            {stat.base_stat}
+                                        </p>
+                                    );
+                                })
+                            }
+                        </div>
                     </PokeStatsContainer>
                 </StatsFlexBox>
             </DetailsFlexBox>
         </div>
-    )
-}
+    );
+};
+  
