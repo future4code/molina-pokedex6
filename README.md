@@ -5,9 +5,9 @@ Nome dos integrantes:
 - Pessoa 2 Pablo Loredo 
 - Pessoa 3 Roberth Willames Moura Felicissimo
 
-                                                       Para rodar na máquina 💻:
-                                                             npm install 📌
-                                                             npm start 📌
+                                            Para rodar na máquina 💻:
+                                                  npm install 📌
+                                                  npm start 📌
 Link do Surge: 
  molina-pokedex6.surge.sh
  
