@@ -78,8 +78,8 @@ export default function HomePage() {
                   
                 </ButtonPaginacao>
         <HomeFlexBox>
-          {pokemonData &&
-            pokemonData.map((pokemon) => {
+          {states.pokemonList && 
+            states.pokemonList.map((pokemon) => {
               return (
                 <Card
                 key={pokemon.name}
