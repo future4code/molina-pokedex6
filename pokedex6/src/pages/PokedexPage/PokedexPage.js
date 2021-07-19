@@ -5,7 +5,7 @@ import PokeCard from '../../components/PokeCard/PokeCard'
 import GlobalStateContext from '../../global/GlobalStateContext';
 
 import {Header , HomeFlexBox} from '../styled/styled'
-import PokeLogo from '../../assets/pokeball-logo.png'
+import PokeLogo from '../../assets/Pokeball.png'
 
 export default function PokeDexPage() {
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export default GetHooks = () => {
+const GetHooks = () => {
     const [dados,setDados] = useState([])
 
     const getDados = () =>{
@@ -19,3 +19,4 @@ export default GetHooks = () => {
 
     return(dados.map) 
 }
+export default GetHooks

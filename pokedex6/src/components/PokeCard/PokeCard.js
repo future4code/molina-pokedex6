@@ -4,29 +4,15 @@ import { goToDetailsPage } from "../../router/Coordinator";
 import axios from "axios";
 import GlobalStateContext from "../../global/GlobalStateContext";
 
-import { DetailsBtnContainer, PokeCardContainer } from "../Styled/styled"
+import Pokebola from '../../assets/Pokeball.png'
 
-export default function PokeCard (props) {
+import { DetailsBtnContainer, PokeCardContainer } from "../Styled/styled";
+
+export default function Card( props ) {
 
   const history = useHistory();
 
-  const [photo, setPhoto] = useState([]);
   const { states, setters } = useContext(GlobalStateContext);
-
-  const pokemonPhoto = () => {
-    axios
-      .get(props.pokemon.url)
-      .then((response) => {
-        setPhoto(response.data.sprites.front_default);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
-  useEffect(() => {
-    pokemonPhoto();
-  }, []);
 
   const addToPokedex = () => {
     const pokeIndex = states.pokemonList.findIndex(
@@ -37,13 +23,14 @@ export default function PokeCard (props) {
 
     const newPokedexList = [...states.pokedex, props.pokemon];
     const orderedList = newPokedexList.sort((a, b) => {
-      return (
-        Number(a.url.slice(20, a.url.length - 1)) -
-        Number(b.url.slice(20, b.url.length - 1))
-      );
+/*       return (
+        Number(a.id(a.url.length - 1)) -
+        Number(b.id.slice( b.id.length - 1))
+      );  */
     });
 
     setters.setPokedex(orderedList);
+    alert (`Adicionado à Pokedex`)
     setters.setPokemonList(newPokemonList);
   };
 
@@ -56,20 +43,23 @@ export default function PokeCard (props) {
 
     const newPokemonList = [...states.pokemonList, props.pokemon];
     const orderedList = newPokemonList.sort((a, b) => {
-      return (
-        Number(a.url.slice(20, a.url.length - 1)) -
-        Number(b.url.slice(20, b.url.length - 1))
-      );
+/*       return (
+        Number(a.url(a.url.length - 1)) -
+        Number(b.url(b.url.length - 1))
+      ); */
     });
 
     setters.setPokedex(newPokedexList);
     setters.setPokemonList(orderedList);
   };
 
-  return (
-    <PokeCardContainer>
-      <img src={photo} alt={props.pokemon.name} />
-      <p>{props.pokemon.name}</p>
+   return (
+    <PokeCardContainer>  
+      <img src={props.pokemon.sprites.front_default} alt="" />
+      <p>
+        <img src={Pokebola} />
+        {props.pokemon.name}
+      </p>
       <DetailsBtnContainer>
         <button 
           onClick={props.isPokedex ? removeFromPokedex : addToPokedex}
@@ -78,12 +68,11 @@ export default function PokeCard (props) {
         </button>
 
         <button
-          onClick={() => goToDetailsPage(history,  props.pokemon.name)}
+          onClick={() => goToDetailsPage(history, props.pokemon.name)}
         >
           Ver detalhes
         </button>
       </DetailsBtnContainer>
     </PokeCardContainer>
   )
-
 }

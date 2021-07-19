@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import DetailsCard from '../../components/DetailsCard/DetailsCard';
 
 import { Header, ButtonContainer } from '../styled/styled';
-import PokeLogo from '../../assets/pokeball-logo.png';
+import PokeLogo from '../../assets/Pokeball.png';
 
 
 export default function DetailsPage() {
