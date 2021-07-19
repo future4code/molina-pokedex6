@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import GlobalStateContext from "./GlobalStateContext";
+import GlobalStateContext from "../global/GlobalStateContext";
 import { baseURL } from "../constants/urls";
-import Pagination from '../pages/Pagination/Pagination'
-
-const LIMIT = 12
 
 const GlobalState = (props) => {
-
   const [pokemonList, setPokemonList] = useState([]);
+
   const [pokedex, setPokedex] = useState([]);
-  const [offset, setOffset] = useState(0)
 
   //pega a lista de  pokemons da pokeAPI
   const getPokemonList = () => {
@@ -28,27 +24,17 @@ const GlobalState = (props) => {
     getPokemonList();
   }, []);
 
-  
-
   const states = { pokemonList, pokedex };
   const setters = { setPokemonList, setPokedex };
   const requests = { getPokemonList };
 
-  
-  const data = { states, setters, requests };
 
+  const data = { states, setters, requests };
+ 
   return (
     <GlobalStateContext.Provider value={data}>
       {props.children}
-      {pokemonList.count && (
-        <Pagination 
-        limit={LIMIT} 
-        total={pokemonList.count}
-        offset={offset}
-        setOffset={setOffset}/>
-      )}
     </GlobalStateContext.Provider>
-
   );
 };
 

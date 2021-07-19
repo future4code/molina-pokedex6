@@ -36,12 +36,24 @@ export const PokeCardContainer = styled.div`
   }
 
   P {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 25px;
     padding: 2px;
     background-color: #f2f3f5;
+    border-radius: 10px;
     box-shadow: rgb(209, 4, 8, 0.4) 0px 5px,
     rgb(209, 4, 8, 0.3) 0px 10px, rgb(209, 4, 8, 0.2) 0px 15px,
     rgb(209, 4, 8, 0.1) 0px 20px, rgb(209, 4, 8, 0.05) 0px 25px;
+  
+    img{
+      margin: 4px;
+      height: 30px;
+      width: 30px;
+      border-radius: 100%;
+      box-shadow: rgb(209, 4, 8, 0.8) 0px 2px;
+    }
   }
 `
 
