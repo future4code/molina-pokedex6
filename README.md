@@ -9,7 +9,7 @@ Nome dos integrantes:
                                                   npm install 📌
                                                   npm start 📌
 Link do Surge: 
-  https://molina-poke6.surge.sh/
+  https://molinapokedex6.surge.sh/pokedex
  
 O que funciona:
 - Item 1 Lista de Pokemons
