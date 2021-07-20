@@ -36,7 +36,7 @@ export default function PokeDexPage() {
                 )
             })
             : <PokedexVazia>
-                <h1>Nenhum Pokemon na Pokedex!</h1>
+                <h2>Nenhum Pokemon na Pokedex!</h2>
                 <iframe src="https://giphy.com/embed/iBANmdIlMNJVC" 
                     width="480" height="179" frameBorder="0" class="giphy-embed" allowFullScreen>
                 </iframe>
