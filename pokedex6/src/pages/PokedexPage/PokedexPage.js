@@ -1,10 +1,11 @@
 import React, {useContext} from 'react';
 import { useHistory } from "react-router-dom";
 import { goToHomePage } from '../../router/Coordinator';
-import PokeCard from '../../components/PokeCard/PokeCard'
+import Card from '../../components/PokeCard/PokeCard'
 import GlobalStateContext from '../../global/GlobalStateContext';
+import Pikachu from '../../assets/png-pokemon.png'
 
-import {Header , HomeFlexBox} from '../styled/styled'
+import {Header , HomeFlexBox , PokedexVazia} from '../styled/styled'
 import PokeLogo from '../../assets/Pokeball.png'
 
 export default function PokeDexPage() {
@@ -22,18 +23,38 @@ export default function PokeDexPage() {
                 <img src={PokeLogo} />
             </Header>
             <HomeFlexBox>
-                {states.pokedex && 
-                    states.pokedex.map((pokemon) => {
-                        return (
-                            <PokeCard
-                                key={pokemon.name}
-                                pokemon={pokemon}
-                                isPokedex={true}
-                            />
-                        )
-                    })
-                }
+            {states.pokedex.length > 0 ?
+            states.pokedex.map((pokemon) => {
+                return (
+                    <li key={pokemon.id}>
+                        <Card
+                            nome={pokemon.name}
+                            pokemon={pokemon}
+                            isPokedex={true}
+                        />
+                    </li> 
+                )
+            })
+            : <PokedexVazia>
+                <h1>Nenhum Pokemon na Pokedex!</h1>
+                <iframe src="https://giphy.com/embed/iBANmdIlMNJVC" 
+                    width="480" height="179" frameBorder="0" class="giphy-embed" allowFullScreen>
+                </iframe>
+              </PokedexVazia> 
+            }
             </HomeFlexBox>
-        </div>
-    )
-}
+            </div>
+            )
+            }
+                {/* <GifPikachu> */}
+{/*                 <div style="width:100%;height:0;padding-bottom:75%;position:relative;">
+                    <iframe src="https://giphy.com/embed/slVWEctHZKvWU" 
+                        width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen>
+                    </iframe>
+                </div>
+                    <p>
+                        <a href="https://giphy.com/gifs/pokemon-pikachu-slVWEctHZKvWU">
+                            via GIPHY
+                        </a>
+                    </p>
+                </GifPikachu> */}

@@ -27,6 +27,14 @@ export const ButtonPaginacao = styled.section`
       }
     }
 `
+export const PokedexVazia = styled.div`
+  height: 200px;
+    
+  iframe{
+    border-radius: 10px;
+  }
+  
+`
 export const Header = styled.div`
   color: #D10408;
   background-color: #615E5E;
