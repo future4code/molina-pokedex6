@@ -87,9 +87,9 @@ console.log(pokemonData)
           }
         </HomeFlexBox>
       </ContainerHomePage>
-      <Footer>
+{/*       <Footer>
         <img src={Pokemons} />
-      </Footer>
+      </Footer> */}
     </div>
   );
 }
