@@ -4,21 +4,23 @@ import {goToPokedexPage} from '../../router/Coordinator'
 import Card from '../../components/PokeCard/PokeCard';
 import GlobalStateContext from '../../global/GlobalStateContext';
 import {baseURL} from '../../constants/urls'
-import { getPokemon, getAllPokemon } from "../../services/pokemon";
+
 
 import {Header , HomeFlexBox , ContainerHomePage , ButtonPaginacao} from '../styled/styled'
 import PokeLogo from '../../assets/Pokeball.png'
 
 export default function HomePage() {
-  const [pokemonData, setPokemonData] = useState([]);
+  
+  const history = useHistory();
+  const {states , setters , requests } = useContext(GlobalStateContext)
+
+/*   const [pokemonData, setPokemonData] = useState([]);
   const [nextUrl, setNextUrl] = useState("");
   const [prevUrl, setPrevUrl] = useState("");
   const [loading, setLoading] = useState(true);
   const initialURL = baseURL;
 
-  const history = useHistory();
-  const {states } = useContext(GlobalStateContext)
-
+console.log(pokemonData)
   useEffect(() => {
     async function fetchData() {
       let response = await getAllPokemon(initialURL);
@@ -57,7 +59,7 @@ export default function HomePage() {
       })
     );
     setPokemonData(_pokemonData);
-  };
+  }; */
 
   return (
     <div>
@@ -71,12 +73,6 @@ export default function HomePage() {
         <img src={PokeLogo} />
       </Header>
       <ContainerHomePage>
-                <ButtonPaginacao>
-                  <h4> Páginas: </h4> 
-                    <button onClick={prev}>Anterior</button>
-                    <button onClick={next}>Próximo</button>
-                  
-                </ButtonPaginacao>
         <HomeFlexBox>
           {states.pokemonList && 
             states.pokemonList.map((pokemon) => {
@@ -85,7 +81,7 @@ export default function HomePage() {
                 key={pokemon.name}
                   pokemon={pokemon}
                   isPokedex={false}
-                  />
+                />
               )
             })
           }

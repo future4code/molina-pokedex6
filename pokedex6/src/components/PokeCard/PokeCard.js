@@ -45,7 +45,7 @@ export default function Card(props) {
     });
 
     setters.setPokedex(orderedList);
-    alert(`Adicionado à Pokedex`);
+    alert(`O Pokemon ${props.pokemon.name} foi Adicionado à Pokedex! ✅ `);
     setters.setPokemonList(newPokemonList);
   };
 
@@ -65,6 +65,7 @@ export default function Card(props) {
     });
 
     setters.setPokedex(newPokedexList);
+    alert(`O Pokemon ${props.pokemon.name} foi Removido à Pokedex! ❌ `)
     setters.setPokemonList(orderedList);
   };
 
