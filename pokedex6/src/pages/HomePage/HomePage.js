@@ -4,9 +4,9 @@ import {goToPokedexPage} from '../../router/Coordinator'
 import Card from '../../components/PokeCard/PokeCard';
 import GlobalStateContext from '../../global/GlobalStateContext';
 import {baseURL} from '../../constants/urls'
+import Pokemons from '../../assets/turma.jpg'
 
-
-import {Header , HomeFlexBox , ContainerHomePage , ButtonPaginacao} from '../styled/styled'
+import {Header , HomeFlexBox , ContainerHomePage , ButtonPaginacao, Footer} from '../styled/styled'
 import PokeLogo from '../../assets/Pokeball.png'
 
 export default function HomePage() {
@@ -87,6 +87,9 @@ console.log(pokemonData)
           }
         </HomeFlexBox>
       </ContainerHomePage>
+      <Footer>
+        <img src={Pokemons} />
+      </Footer>
     </div>
   );
 }
