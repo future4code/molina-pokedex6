@@ -28,8 +28,6 @@ export const ButtonPaginacao = styled.section`
     }
 `
 export const PokedexVazia = styled.div`
-  height: 200px;
-    
   iframe{
     border-radius: 10px;
   }
