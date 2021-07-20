@@ -5,6 +5,7 @@ export const ContainerHomePage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height:100%;
 
 `
 export const ButtonPaginacao = styled.section`
@@ -28,8 +29,6 @@ export const ButtonPaginacao = styled.section`
     }
 `
 export const PokedexVazia = styled.div`
-  height: 200px;
-    
   iframe{
     border-radius: 10px;
   }
@@ -77,6 +76,12 @@ export const HomeFlexBox = styled.main`
   flex-wrap: wrap;
   padding-top: 100px;
 `;
+export const Footer = styled.footer`
+  display: flex;
+  flex-direction: column;
+ 
+
+`
 
 //page Details Page
 
