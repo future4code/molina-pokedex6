@@ -1,7 +1,7 @@
 #                                                                          POKEDEX
 
-Nome dos integrantes: 
-- Pessoa 1 Jaqueline Lourenço
+Nome: 
+- Jaqueline Lourenço
 
 
                                             Para rodar na máquina 💻:
